@@ -1,0 +1,26 @@
+{
+  "name": "clase1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunorilla/coderhouse.git"
+  },
+  "keywords": [
+    "clase1"
+  ],
+  "author": "Bruno Rilla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brunorilla/coderhouse/issues"
+  },
+  "homepage": "https://github.com/brunorilla/coderhouse#readme",
+  "dependencies": {
+    "md5": "^2.2.1"
+  }
+}
