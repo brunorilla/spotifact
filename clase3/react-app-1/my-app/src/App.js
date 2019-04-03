@@ -64,7 +64,7 @@ class App extends Component {
   }
   getResult = () => {
       // hacer la operación matemática
-      console.log(eval("Number(this.state.operation.left)"
+      let result = (eval("Number(this.state.operation.left)"
                             + this.state.operation.operator
                             + "Number(this.state.operation.right)"))
       this.setState({
@@ -80,12 +80,11 @@ class App extends Component {
       <div className="App">
         <div className="calculator">
             <div className="calculator-screen">
-                <p className="calculator-temporal">{this.state.operation.operator}</p>
+                <p className="calculator-temporal">{this.state.operation.result}</p>
                 <p className="calculator-result">
                     {this.state.operation.left}
                     {this.state.operation.operator}
                     {this.state.operation.right}
-                    {this.state.operation.result}
                 </p>
             </div>
             <div className="calculator-buttons-wrapper">
