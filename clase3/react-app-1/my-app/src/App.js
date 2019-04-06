@@ -10,29 +10,17 @@ class App extends Component {
       // stateful
       this.state = {
           operation: {
-              left: null,
+              left: 0,
               operator: null,
-              right: null,
-              result: null
+              right: 0,
+              result: 0
           },
-          result: 0,
-          value: null
+          // historial
+          history: []
       }
   }
   add(){
 
-  }
-  clear = () =>{
-      this.setState({
-          result:0,
-          value: null,
-          operation: {
-              left: null,
-              operator: null,
-              right: null,
-              result: null
-          }
-      })
   }
   setOperation = (e)=>{
       this.setState({
@@ -44,12 +32,30 @@ class App extends Component {
       })
   }
 
+  clear = () =>{
+        this.setState({
+            operation: {
+                left: 0,
+                operator: null,
+                right: 0,
+                result: 0
+            }
+        })
+    }
+
+  clearHistory = ()=> {
+      this.setState({
+            history: []
+      })
+  }
+
+
     setValue = (e)=>{
         if(this.state.operation.operator) {
             this.setState({
                 operation : {
                     ...this.state.operation,
-                    right: e.target.value
+                    right: Number(this.state.operation.right + e.target.value)
                 }
             }, ()=> this.getResult())
 
@@ -57,7 +63,7 @@ class App extends Component {
             this.setState({
                 operation: {
                     ...this.state.operation,
-                    left: e.target.value
+                    left: Number(this.state.operation.left + e.target.value)
                 }
             })
         }
@@ -72,43 +78,47 @@ class App extends Component {
               ...this.state.operation,
               result: result
           }
+      }, ()=>{
+          this.state.history.push(this.state.operation)
+          this.forceUpdate()
       })
   }
 
   render() {
+
     return (
       <div className="App">
         <div className="calculator">
             <div className="calculator-screen">
                 <p className="calculator-temporal">{this.state.operation.result}</p>
                 <p className="calculator-result">
-                    {this.state.operation.left}
+                    {this.state.operation.left == 0 ? '' : this.state.operation.left}
                     {this.state.operation.operator}
-                    {this.state.operation.right}
+                    {this.state.operation.right == 0 ? '' : this.state.operation.right}
                 </p>
             </div>
+            <div className="calculator-history-screen">
+                <ul>
+                    {this.state.history.map((item, key) => <li>{key={key}} {item.left} {item.operator}  {item.right} = {item.result}</li>)}
+                </ul>
+            </div>
             <div className="calculator-buttons-wrapper">
-                <button className="calculator-button" value="+" onClick={this.setOperation}>Add</button>
-                <button className="calculator-button" value="-" onClick={this.setOperation}>Sub</button>
-                <button className="calculator-button" value="/" onClick={this.setOperation}>Div</button>
-                <button className="calculator-button" value="*" onClick={this.setOperation}>Mul</button>
+                <button className="calculator-button" value="+" onClick={this.setOperation}>+</button>
+                <button className="calculator-button" value="-" onClick={this.setOperation}>-</button>
+                <button className="calculator-button" value="/" onClick={this.setOperation}>&divide;</button>
+                <button className="calculator-button" value="*" onClick={this.setOperation}>&#10006;</button>
             </div>
             <div className="row-wrapper">
                 <div className="calculator-buttons-wrapper half">
-                    <button className="calculator-button-number" value="1" onClick={this.setValue}>1</button>
-                    <button className="calculator-button-number" value="2" onClick={this.setValue}>2</button>
-                    <button className="calculator-button-number" value="3" onClick={this.setValue}>3</button>
-                    <button className="calculator-button-number" value="4" onClick={this.setValue}>4</button>
-                    <button className="calculator-button-number" value="5" onClick={this.setValue}>5</button>
-                    <button className="calculator-button-number" value="6" onClick={this.setValue}>6</button>
-                    <button className="calculator-button-number" value="7" onClick={this.setValue}>7</button>
-                    <button className="calculator-button-number" value="8" onClick={this.setValue}>8</button>
-                    <button className="calculator-button-number" value="9" onClick={this.setValue}>9</button>
-                    <button className="calculator-button-number" value="0" onClick={this.setValue}>0</button>
+                    {
+                        [0,1,2,3,4,5,6,7,8,9].map(n => <button key={n} className="calculator-button-number" value={n} onClick={this.setValue}>{n}</button>
+                        )
+                    }
                 </div>
                 <div className="calculator-buttons-wrapper half">
-                    <button className="calculator-button flex-grow" onClick={()=>this.getResult()}>=</button>
+                    <button className="calculator-button flex-grow" onClick={()=>this.getResult}>=</button>
                     <button className="calculator-button flex-grow" onClick={this.clear}>Clear</button>
+                    <button className="calculator-button flex-grow" onClick={this.clearHistory}>C</button>
                 </div>
             </div>
         </div>
