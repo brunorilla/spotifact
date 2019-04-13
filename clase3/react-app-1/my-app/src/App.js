@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import './fonts.css'
 import './App.css';
 import './calculadora.css';
+import History from './History'
 
 class App extends Component {
   constructor(props){
@@ -98,9 +100,7 @@ class App extends Component {
                 </p>
             </div>
             <div className="calculator-history-screen">
-                <ul>
-                    {this.state.history.map((item, key) => <li>{key={key}} {item.left} {item.operator}  {item.right} = {item.result}</li>)}
-                </ul>
+                <History items={this.state.history}/>
             </div>
             <div className="calculator-buttons-wrapper">
                 <button className="calculator-button" value="+" onClick={this.setOperation}>+</button>

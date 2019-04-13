@@ -1,0 +1,39 @@
+{
+  "items": [
+    {
+    "title": "Again",
+    "cover": "https://placeimg.com/300/100/tech",
+    "subcopy": "Lenny Kravitz",
+    "followers": 1200,
+    "year": 2000
+    },
+    {
+      "title": "DNA",
+      "cover": "https://placeimg.com/300/100/tech",
+      "subcopy": "Kendrick Lamar",
+      "followers": 200,
+      "year": 2017
+    },
+    {
+      "title": "Umbrella",
+      "cover": "https://placeimg.com/300/100/tech",
+      "subcopy": "Rihanna",
+      "followers": 1000,
+      "year": 2007
+    },
+    {
+      "title": "Sad But True",
+      "cover": "https://placeimg.com/300/100/tech",
+      "subcopy": "Metallica",
+      "followers": 6000,
+      "year": 1991
+    },
+    {
+      "title": "Sad But True",
+      "cover": "https://placeimg.com/300/100/tech",
+      "subcopy": "Metallica",
+      "followers": 6000,
+      "year": 1991
+    }
+  ]
+}

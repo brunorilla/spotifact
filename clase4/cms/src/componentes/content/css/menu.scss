@@ -1,0 +1,21 @@
+.menu {
+  display:flex;
+  width: 100%;
+}
+.menu-ul {
+  list-style-type: none;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  .menu-li {
+    display:flex;
+    justify-content: center;
+    color: white;
+    text-transform: uppercase;
+    background-color: #282c34;
+    flex-grow:1;
+    align-items: center;
+    height: 50px;
+    align-self: center;
+  }
+}
