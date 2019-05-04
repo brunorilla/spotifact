@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "title": "Again",
+      "cover": "https://placeimg.com/300/100/tech",
+      "subcopy": "Lenny Kravitz",
+      "followers": 1200,
+      "year": 2000,
+      "length": 289
+    },
+    {
+      "title": "DNA",
+      "cover": "https://placeimg.com/300/100/tech",
+      "subtitle": "Kendrick Lamar",
+      "followers": 200,
+      "year": 2017,
+      "length": 219
+    },
+    {
+      "title": "Umbrella",
+      "cover": "https://placeimg.com/300/100/tech",
+      "subcopy": "Rihanna",
+      "followers": 1000,
+      "year": 2007,
+      "length": 282
+    },
+    {
+      "title": "Sad But True",
+      "cover": "https://placeimg.com/300/100/tech",
+      "subcopy": "Metallica",
+      "followers": 6000,
+      "year": 1991,
+      "length": 189
+    },
+    {
+      "title": "Can U Get Away",
+      "cover": "https://placeimg.com/300/100/tech",
+      "subcopy": "2pac",
+      "followers": 100000,
+      "year": 1995,
+      "length": 320
+    },
+    {
+      "title": "Soy Cordobés",
+      "cover": "https://placeimg.com/300/100/tech",
+      "subcopy": "Rodrigo Bueno",
+      "followers": 62000,
+      "year": 1998
+    },
+    {
+      "title": "Humble",
+      "cover": "https://placeimg.com/300/100/tech",
+      "subcopy": "Kendrick Lamar",
+      "followers": 62000,
+      "year": 2017
+    }
+  ]
+}

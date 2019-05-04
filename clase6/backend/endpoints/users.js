@@ -14,4 +14,10 @@ routes.post('/',function(request, response){
     model.create(request.body)
 })
 
+routes.patch('/', function(request,response){
+    model.update(request.body,{
+        where : {id : 1}
+    })
+})
+
 module.exports = routes;

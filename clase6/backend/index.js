@@ -9,6 +9,7 @@ let usersRoutes = require('./endpoints/users');
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
 
 /* Set GET response */
 
