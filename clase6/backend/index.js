@@ -4,12 +4,14 @@ let playlistRoutes = require('./endpoints/playlists')
 let userRoutes = require('./endpoints/profile')
 let albumRoutes = require('./endpoints/albums')
 let usersRoutes = require('./endpoints/users');
+let cors = require('cors')
 // Instantiate express
 
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
+app.use(cors())
 
 /* Set GET response */
 
@@ -43,3 +45,4 @@ app.use('/users', usersRoutes);
 let server = app.listen(3000, ()=>{
     console.log('La aplicación está escuchando el puerto 3000');
 });
+

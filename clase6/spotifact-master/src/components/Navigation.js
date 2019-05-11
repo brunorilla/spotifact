@@ -19,7 +19,9 @@ class Navigation extends Component {
                     <li>
                         <Link to="/detail">Detail</Link>
                     </li>
-                    <li>Browse</li>
+                    <li>
+                        <Link to="/playlists">Mis Playlists</Link>
+                    </li>
                     <li>Playlists</li>
                 </ul>
                 <p><strong>Lista actual {this.props.songs.length}</strong></p>
