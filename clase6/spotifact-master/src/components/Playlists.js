@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {getPlaylists} from '../requests'
 import {Link} from "react-router-dom"
 import {newPlaylist} from "../requests"
+import {deletePlaylist} from "../requests"
 
 class Playlists extends Component{
     constructor(props){
@@ -22,7 +23,7 @@ class Playlists extends Component{
     }
 
     handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         newPlaylist(this.state.form.name)
             .then(response => {
@@ -30,7 +31,7 @@ class Playlists extends Component{
                     playlists: this.state.playlists.concat(response.data)
                 })
             })
-    }
+    };
 
     handleInputChange = (e) => {
         this.setState({
@@ -38,8 +39,13 @@ class Playlists extends Component{
                 name: e.target.value
             }
 
-        })
+        });
         console.log(e.target.name, e.target.value)
+    };
+
+    handleDelete = (e) => {
+        e.preventDefault();
+        console.log(e);
     }
 
     render(){
@@ -53,7 +59,9 @@ class Playlists extends Component{
                         return (
                                 <li key={i}>
                                     <Link key={i} to={`/playlists/${p.id}`}>{p.name}</Link>
+                                    <button onClick={this.handleDelete}>Borrar</button>
                                 </li>
+
                             )
                         })
                     }
@@ -64,6 +72,9 @@ class Playlists extends Component{
                                onChange={this.handleInputChange} value={this.state.form.name}/>
                     </div>
                     <button onClick={this.handleSubmit}>Crear</button>
+
+
+
                 </form>
             </div>
         )
