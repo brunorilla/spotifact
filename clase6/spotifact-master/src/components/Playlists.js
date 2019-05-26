@@ -19,7 +19,6 @@ class Playlists extends Component{
     componentWillMount(){
         getPlaylists()
             .then(response => this.setState({playlists: response.data}))
-
     }
 
     handleSubmit = (e) => {
@@ -59,7 +58,10 @@ class Playlists extends Component{
                         return (
                                 <li key={i}>
                                     <Link key={i} to={`/playlists/${p.id}`}>{p.name}</Link>
-                                    <button onClick={this.handleDelete}>Borrar</button>
+                                    <form action="">
+                                        <input type="hidden" value={p.id} ref={p.id}/>
+                                        <button onClick={this.handleDelete}>Borrar</button>
+                                    </form>
                                 </li>
 
                             )
@@ -80,5 +82,7 @@ class Playlists extends Component{
         )
     }
 }
+
+
 
 export default Playlists

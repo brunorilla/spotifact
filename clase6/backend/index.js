@@ -26,7 +26,6 @@ app.get('/', function(request,response){
 
 
 // Routear playlists
-
 app.use('/playlists', playlistRoutes);
 app.use('/me', userRoutes);
 app.use('/albums', albumRoutes);
