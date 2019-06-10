@@ -1,14 +1,19 @@
 const routes = require('express').Router();
-const model = require('.././models/playlistModel')
+const model = require('.././models/playlistModel');
 
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 /* Set GET response for playlists */
 routes.get('/', function(request, response){
     model.findAll({
-        attributes : ['id','name']
-    }).then(data => {
-        response.json(data);
-    })
+        attributes : ['id','name'],
+        where: {
+            deleted_at: {
+                [Op.eq]: null
+            }
+        }
+    }).then(data => response.json(data))
 })
 
 routes.get('/:id', function(request, response){

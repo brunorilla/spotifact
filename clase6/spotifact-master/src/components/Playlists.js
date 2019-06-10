@@ -3,6 +3,8 @@ import {getPlaylists} from '../requests'
 import {Link} from "react-router-dom"
 import {newPlaylist} from "../requests"
 import {deletePlaylist} from "../requests"
+import './styles/styles.css';
+
 
 class Playlists extends Component{
     constructor(props){
@@ -14,7 +16,9 @@ class Playlists extends Component{
                 name: ""
             }
         }
+
     }
+
 
     componentWillMount(){
         getPlaylists()
@@ -42,42 +46,53 @@ class Playlists extends Component{
         console.log(e.target.name, e.target.value)
     };
 
-    handleDelete = (e) => {
-        e.preventDefault();
-        console.log(e);
+    handleDelete(value){
+        console.log(value);
+        deletePlaylist(value)
+        setTimeout(()=>{
+            getPlaylists().then(response => this.setState({playlists: response.data})).then(console.log(this.state))
+                .then(console.log("success"))
+        },20);
+
+
+
+
     }
 
     render(){
         return (
-            <div>
+            <div className="playlists-container">
                 <h1>Mis playlists</h1>
-                <p>Lista de playlists</p>
-                <ul className="playlist-list">
-                    {
-                        this.state.playlists.map((p, i) =>{
-                        return (
-                                <li key={i}>
-                                    <Link key={i} to={`/playlists/${p.id}`}>{p.name}</Link>
-                                    <form action="">
-                                        <input type="hidden" value={p.id} ref={p.id}/>
-                                        <button onClick={this.handleDelete}>Borrar</button>
-                                    </form>
-                                </li>
+                <div className="wrapper">
+                    <div className="playlists-list">
+                        <p>Lista de playlists</p>
+                            <ul className="playlist-list">
+                                {
+                                    this.state.playlists.map((p, i) =>{
+                                    return (
+                                            <li key={i}>
+                                                <Link key={i} to={`/playlists/${p.id}`}>{p.name}</Link>
+                                                <button value={p.id}  onClick={()=>this.handleDelete(`${p.id}`)}>Borrar</button>
+                                            </li>
 
-                            )
-                        })
-                    }
-                </ul>
-                <form action="">
-                    <div>
-                        <input type="text" placeholder="Nombre" name="name"
-                               onChange={this.handleInputChange} value={this.state.form.name}/>
+                                        )
+                                    })
+                                }
+                            </ul>
                     </div>
-                    <button onClick={this.handleSubmit}>Crear</button>
+                    <div className="playlist-create">
+                        <form action="">
+                            <div>
+                                <input type="text" placeholder="Nombre" name="name"
+                                       onChange={this.handleInputChange} value={this.state.form.name}/>
+                            </div>
+                            <button onClick={this.handleSubmit}>Crear</button>
 
 
 
-                </form>
+                        </form>
+                    </div>
+                </div>
             </div>
         )
     }

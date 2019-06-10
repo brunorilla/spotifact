@@ -1,0 +1,41 @@
+* {
+  font-family: Lato;
+}
+
+
+.wrapper {
+  width: 90%;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.playlists-container {
+  background-color: rgb(40, 44, 52);
+  min-height: 100vh;
+  h1 {
+    color: #FFFFFF;
+    background-color: #20232B;
+    text-align: center;
+    padding: 20px 0;
+  }
+  p {
+    color: #FFFFFF;
+    font-size: 32px;
+    line-height: 1;
+    font-weight: 900;
+    padding:10px 0;
+  }
+}
+
+.playlists-list {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 10px 10px 10px;
+  margin: 20px 0 0 0;
+  ul {
+    display:flex;
+    flex-wrap: wrap;
+    li {
+    }
+  }
+}
