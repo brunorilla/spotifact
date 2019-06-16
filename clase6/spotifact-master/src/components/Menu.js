@@ -2,6 +2,16 @@ import React, {Component} from 'react';
 import {Input, Col, Navbar, Jumbotron} from 'reactstrap';
 
 class Menu extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            search : {
+                keyword : '',
+
+            }
+        }
+    }
+
     render() {
         return (
             <Col>

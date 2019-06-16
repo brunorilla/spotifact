@@ -1,5 +1,8 @@
 import React, {Component} from 'react'
 import {getPlaylist} from './../requests'
+import './styles/styles.css';
+import {Link} from "react-router-dom";
+
 
 class PlaylistDetail extends Component{
     constructor(props){
@@ -7,7 +10,6 @@ class PlaylistDetail extends Component{
         this.state = {
             playlist : {}
         }
-        console.log("abajo del constructor",this.props)
     }
     componentWillMount() {
         getPlaylist(this.props.match.params.id)
@@ -16,10 +18,33 @@ class PlaylistDetail extends Component{
 
     render(){
         return(
-            <div>
-                <h1>Detalle de la playlist {this.state.playlist.id}</h1>
-                <p>{this.state.playlist.name}</p>
+            <div className="playlists-mainWrapper">
+                <div className="playlists-menu">
+                    <ul>
+                        <li>
+                            <Link to={"/"}>Home</Link>
+                        </li>
+                        <li>
+                            <Link to={"/playlists"}>Playlists</Link>
+                        </li>
+                    </ul>
+                </div>
+
+                <div className="playlists-container">
+                    <h1>Detalle de la playlist</h1>
+                    <div className="wrapper">
+                        <ul>
+                            <li>
+                                <h2>Nombre</h2>
+                            </li>
+                            <li>
+                                <p>{this.state.playlist.name}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+
         )
     }
 }

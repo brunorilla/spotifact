@@ -51,7 +51,6 @@ class Playlists extends Component{
         deletePlaylist(value)
         setTimeout(()=>{
             getPlaylists().then(response => this.setState({playlists: response.data})).then(console.log(this.state))
-                .then(console.log("success"))
         },20);
 
 
@@ -61,7 +60,16 @@ class Playlists extends Component{
 
     render(){
         return (
-            <div className="playlists-container">
+            <div className="playlists-mainWrapper">
+                <div className="playlists-menu">
+                    <ul>
+                        <li>
+                            <Link to={"/"}>Home</Link>
+                        </li>
+                    </ul>
+                </div>
+
+                <div className="playlists-container">
                 <h1>Mis playlists</h1>
                 <div className="wrapper">
                     <div className="playlists-list">
@@ -82,17 +90,18 @@ class Playlists extends Component{
                     </div>
                     <div className="playlist-create">
                         <form action="">
-                            <div>
+                            <div className="input-container">
                                 <input type="text" placeholder="Nombre" name="name"
-                                       onChange={this.handleInputChange} value={this.state.form.name}/>
+                                       onChange={this.handleInputChange} value={this.state.form.name} placeholder="Escribe aqui..."/>
                             </div>
-                            <button onClick={this.handleSubmit}>Crear</button>
+                            <button className="search-button" onClick={this.handleSubmit}>Crear</button>
 
 
 
                         </form>
                     </div>
                 </div>
+            </div>
             </div>
         )
     }

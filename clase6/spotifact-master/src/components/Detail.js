@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Navigation from './Navigation';
 import Content from './Content';
+import Register from './Register';
 import '../styles/App.css';
 import Menu from './Menu'
 import { Button } from 'reactstrap';
@@ -12,6 +13,9 @@ class Detail extends Component {
                 <div className="row">
                     <div className="col">
                         <Menu/>
+                    </div>
+                    <div className="col">
+                        <Register/>
                     </div>
                 </div>
 
